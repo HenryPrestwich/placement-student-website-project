@@ -41,7 +41,7 @@ export const events: Event[] = [
     venue: 'Town Hall',
     ticketPrice: '£5',
     ticketLink: 'www.musicglue.com/tenterdenfolkfestival/tickets',
-    description: 'Come and dance the night away with our Tenterden Folk Festival Ceilidh Band!',
+    description: 'Come and dance the night away with our Tenterden Folk Festival Ceilidh Band.  Our fabulous caller will take you through the steps so no experience necessary, just enthusiasm!  Suitable for families.',
     contactDetails: { email: 'petecastle42@gmail.com' },
     image: '/images/ceilidh.jpg',
   },

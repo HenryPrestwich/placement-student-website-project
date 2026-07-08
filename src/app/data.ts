@@ -10,6 +10,12 @@ export type Event = {
   image?: string;
 };
 
+export type Price = {
+  title: string;
+  description: string;
+  price: string;
+}
+
 export const events: Event[] = [
   {
     date: 'Saturday 22nd August 2026',
@@ -55,4 +61,16 @@ export const events: Event[] = [
     description: 'The main event!  From their debut gig at one of the largest Celtic music festivals anywhere in the world – Brittany’s famed Festival Interceltique de Lorient – the exhilarating, genre-busting Mec Lir have been frenzying festival audiences for a decade.',
     image: '/images/meclir.jpg',
   },
+];
+export const Prices: Price[] = [
+  {
+    title: 'Adult',
+    price: '£5',
+    description: 'Full day access to all events.'
+  },
+  {
+    title: 'Child',
+    price: '£2',
+    description: 'Access to all events for children under 16.'
+  }
 ];

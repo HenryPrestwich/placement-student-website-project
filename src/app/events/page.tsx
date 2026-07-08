@@ -24,6 +24,12 @@ export default function Events(): ReactNode {
         </Tabs.List>
         </Tabs>
         <Stack gap="lg">
+          <Button
+                component='a'
+                href="/tickets"
+              >
+                Buy Tickets
+              </Button>
           {eventsData.map((event) => (
             <Card shadow="sm" padding="lg"  orientation="horizontal" withBorder
             key={event.title}
@@ -44,16 +50,12 @@ export default function Events(): ReactNode {
               <h3>{event.title}</h3>
               <p>{event.date}</p>
               <p>{event.time}</p>
-              <Button
-                component='a'
-                href={event.ticketLink}
-                
-              >
-                Tickets
-              </Button>
+              
               </Stack>
             </Card>
+            
           ))}
+          
         </Stack>
       </Stack>
     </PageLayout>

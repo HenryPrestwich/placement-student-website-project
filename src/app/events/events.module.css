@@ -1,6 +1,6 @@
 .event {
   width: 100%;
-  margin-bottom: 5rem;
+  /* margin-bottom: 5rem; */
   &:last-child {
     margin: 0;
   }
@@ -15,5 +15,5 @@
 }
 
 .image {
-  margin: 1rem auto;
+  /* margin: 1rem auto; */
 }

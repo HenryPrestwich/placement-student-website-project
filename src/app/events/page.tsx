@@ -3,45 +3,60 @@
 import PageLayout from '@/app/genericLayout';
 import { ReactNode } from 'react';
 import { events } from '../data';
-import { Button, Image, List, Stack } from '@mantine/core';
+import { Card, Button, Image, Stack, Tabs, Modal, Flex, CardSection } from '@mantine/core';
+import { useDisclosure } from '@mantine/hooks';
 import styles from './events.module.css';
 
 export default function Events(): ReactNode {
   const eventsData = events;
+  const[opened, { open, close }] = useDisclosure(false);
   return (
+    <>
+    <Modal opened={opened} onClose={close} centered lockScroll={false} overlayProps={{ opacity: 0.8, blur: 1}}>
+    </Modal>
     <PageLayout>
       <Stack justify='center'>
         <h2>Events</h2>
-        <List type='unordered'>
+        <Tabs defaultValue="Saturday">
+        <Tabs.List grow justify="center">
+          <Tabs.Tab value="Saturday" > Saturday</Tabs.Tab>
+          <Tabs.Tab value="Sunday" > Sunday</Tabs.Tab>
+        </Tabs.List>
+        </Tabs>
+        <Stack gap="lg">
           {eventsData.map((event) => (
-            <List.Item
-              key={event.title}
-              className={styles.event}
+            <Card shadow="sm" padding="lg"  orientation="horizontal" withBorder
+            key={event.title}
+            className={styles.event}
+            component='button'
+            onClick={open}
             >
+              <Card.Section>
+
+                <Image
+                radius="md"
+                  src={event.image}
+                  h={300}
+                  w={300}
+                />
+              </Card.Section> 
+              <Stack justify="center" gap="md" w={"100%"} ml="lg"> 
               <h3>{event.title}</h3>
               <p>{event.date}</p>
-              <p>{event.description}</p>
-
+              <p>{event.time}</p>
               <Button
                 component='a'
-                className={styles.button}
                 href={event.ticketLink}
+                
               >
                 Tickets
               </Button>
-              {event.image && (
-                <Image
-                  className={styles.image}
-                  src={event.image}
-                  h={300}
-                  width={'auto'}
-                  fit='contain'
-                />
-              )}
-            </List.Item>
+              </Stack>
+            </Card>
           ))}
-        </List>
+        </Stack>
       </Stack>
     </PageLayout>
+    </>
   );
 }

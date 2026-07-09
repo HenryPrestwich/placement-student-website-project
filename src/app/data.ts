@@ -52,7 +52,7 @@ export const events: Event[] = [
     image: '/images/ceilidh.jpg',
   },
   {
-    date: 'Saturday 22nd August 2026',
+    date: 'Sunday 23nd August 2026',
     time: '8pm',
     title: 'Mec Lir',
     venue: 'Town Hall Theatre',

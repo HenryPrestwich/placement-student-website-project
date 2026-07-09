@@ -1,9 +1,10 @@
-import { Flex, Image, Stack } from '@mantine/core';
+import { Flex, Image, Stack, Box, Button } from '@mantine/core';
 import NavBar from './components/navBar';
 import './styles/global.css';
 import Footer from './components/footer';
 
 export default function PageLayout({ children }: { children: React.ReactNode }) {
+  const SignedIn = false; // Replace with your authentication logic
   return (
     <Stack>
       <Flex
@@ -22,6 +23,17 @@ export default function PageLayout({ children }: { children: React.ReactNode }) 
           />
 
           <h1>Tenterden Folk Day Trust</h1>
+        </Flex>
+        <Flex align='right'>
+          { SignedIn ? (
+            <Button component='a' href='/admin'>Admin</Button>
+          ) : (
+            <Button component='a' href='/login'>Login</Button>
+          )}
+          
+          { SignedIn && (
+            <Button component='a' href='/logout'>Logout</Button>
+          )}
         </Flex>
       </Flex>
       <NavBar />
